@@ -4,16 +4,22 @@ import Derekspart from "./components/Dereks-part";
 import Masonspart from "./components/Masons-part";
 
 function Launderer() {
-   const [count, setCount] = useState(0);
+   const [basket, setBasket] = useState([]);
 
-   const increment = () => {
-      setCount(count + 1);
+   const addLaundry = () => {
+      setBasket([
+         ...basket,
+         {
+            id: basket.length,
+            value: "new laundry item"
+         }
+      ]);
    };
 
    return (
       <div className="App">
-         <Masonspart onClick={increment} count={count} />
-         <Derekspart count={count} />
+         <Masonspart addLaundry={addLaundry} />
+         <Derekspart basket={basket} />
       </div>
    );
 }

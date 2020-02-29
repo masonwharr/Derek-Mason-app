@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const Masonspart = ({ onClick, count }) => {
-   return <button onClick={onClick}>Click me {count}</button>;
+const Masonspart = ({ addLaundry }) => {
+   return <button onClick={addLaundry}>Click me to add item</button>;
 };
 
 export default Masonspart;
