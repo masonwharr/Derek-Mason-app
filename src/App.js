@@ -4,16 +4,16 @@ import Derekspart from "./components/Dereks-part";
 import Masonspart from "./components/Masons-part";
 
 function Launderer() {
-   const [value, setValue] = React.useState("");
+   const [count, setCount] = useState(0);
 
-   function handleChange(newValue) {
-      setValue(newValue);
-   }
+   const increment = () => {
+      setCount(count + 1);
+   };
 
    return (
-      <div className="Launderer">
-         <Masonspart value={value} onChange={handleChange} />
-         <Derekspart value={value} />
+      <div className="App">
+         <Masonspart onClick={increment} count={count} />
+         <Derekspart count={count} />
       </div>
    );
 }

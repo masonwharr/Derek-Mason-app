@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-function Derekspart(props) {
-   return <input value={props.value} />;
-}
+const Derekspart = ({ count }) => {
+   return <span>Click me {count}</span>;
+};
 
 export default Derekspart;
