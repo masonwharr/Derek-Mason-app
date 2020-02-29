@@ -5,6 +5,7 @@ import Masonspart from "./components/Masons-part";
 
 function Launderer() {
    const [basket, setBasket] = useState([]);
+   const [sort, setSort] = useState("new");
 
    const addLaundry = () => {
       setBasket([
@@ -16,10 +17,23 @@ function Launderer() {
       ]);
    };
 
+   const changeSort = option => {
+      switch (option) {
+         case "a":
+            return setSort("new");
+         case "b":
+            return setSort("color");
+         case "c":
+            return setSort("type");
+         default:
+            return setSort("new");
+      }
+   };
+
    return (
       <div className="App">
-         <Masonspart addLaundry={addLaundry} />
-         <Derekspart basket={basket} />
+         <Masonspart addLaundry={addLaundry} setSort={changeSort} />
+         <Derekspart basket={basket} sort={sort} />
       </div>
    );
 }
