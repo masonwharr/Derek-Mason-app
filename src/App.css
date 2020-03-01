@@ -7,6 +7,23 @@
   pointer-events: none;
 }
 
+.clothing-item-container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 500px;
+  margin: auto;
+}
+
+.clothing-item{
+  width: 100%;
+  min-height: 50px;
+}
+
+[data-color="salmon"]{
+  background-color:salmon;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
