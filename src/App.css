@@ -20,8 +20,22 @@
   min-height: 50px;
 }
 
-[data-color="salmon"]{
-  background-color:salmon;
+.input-container{
+  max-width: 700px;
+  margin: auto;
+  padding: 10px;
+}
+
+.input-container .input-row{
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.input-container label{
+  width: 100%;
+  Margin-bottom: 5px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
