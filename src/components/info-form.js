@@ -5,19 +5,19 @@ const Form = ({ setfields, addFromForm, size, name, color, type, setSize, setNam
     <form onSubmit={e => e.preventDefault()}>
         <div className="input-container">
             <div className="input-row">
-                <label for="Name" >Name</label>
+                <label htmlFor="Name" >Name</label>
                 <input className="item-input" value={name} onChange={e => setName(e.target.value)} />
             </div>
             <div className="input-row">
-                <label for="Size" >Size</label>
+                <label htmlFor="Size" >Size</label>
                 <input className="item-input" value={size} onChange={e => setSize(e.target.value)} />
             </div>
             <div className="input-row">
-                <label for="Color" >Color</label>
+                <label htmlFor="Color" >Color</label>
                 <input className="item-input" value={color} onChange={e => setColor(e.target.value)} />
             </div>
             <div className="input-row">
-                <label for="Type" >Type</label>
+                <label htmlFor="Type" >Type</label>
                 <input className="item-input" value={type} onChange={e => setType(e.target.value)} />
             </div>
             <input onClick={() => addFromForm(size, name, color, type)} type="submit" value="Add To Form" />

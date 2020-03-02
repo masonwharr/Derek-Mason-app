@@ -13,7 +13,6 @@ return (
     <div className="clothing-item-container">
       {items}
     </div>
-    <button onClick={addLaundry}>Click to sort items into drawers</button>
   </section>
     );
 };
