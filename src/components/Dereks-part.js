@@ -8,27 +8,30 @@ const Derekspart = ({ basket, drawer, sortIntoDrawer, sort, setSort }) => {
     }, [basket, sort]);
 
     let sortedDrawer = drawer.map((item) =>
-      <li key={item.key}>
-        Name: {item.name}
-        Type: {item.type}
-        Size: {item.size}
-        Color: {item.color}
+      <li key={item.key} className="clothing-item" data-name={item.name} data-color={item.color} data-size={item.size} data-type={item.type}>
+         <span>Name: {item.name}</span>
+         <span>Type: {item.type}</span>
+         <span>Size: {item.size}</span>
+         <span>Color: {item.color}</span>
       </li>
       );
    // TODO drawer only displays after user clicks button, and updates each time after
    return (
       <section>   
          {/* <button onClick={sortIntoDrawer(sort, basket)}>Click to sort items into drawers</button> */}
-         <ul>
-            <li>Position By:</li>
-            <li><button onClick={e => setSort('a')}>Name</button></li>
-            <li><button onClick={e => setSort('b')}>Type</button></li>
-            <li><button onClick={e => setSort('c')}>Size</button></li>
-            <li><button onClick={e => setSort('d')}>Color</button></li>
-         </ul>
-         <ul>
-            {sortedDrawer}
-         </ul>
+         <div className="sort-container">
+            <h3 className="sort-title">Position By:</h3>
+            <ul className="sort-option-list">
+               <li><button className="sort-option button" onClick={e => setSort('a')}>Name</button></li>
+               <li><button className="sort-option button" onClick={e => setSort('b')}>Type</button></li>
+               <li><button className="sort-option button" onClick={e => setSort('c')}>Size</button></li>
+               <li><button className="sort-option button" onClick={e => setSort('d')}>Color</button></li>
+            </ul></div>
+         <div className="drawer-container">
+            <ul className="drawer-list">
+               {sortedDrawer}
+            </ul>
+         </div>
       </section>
    );
 };
