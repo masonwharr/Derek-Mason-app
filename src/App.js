@@ -2,15 +2,33 @@ import React, { useState } from 'react';
 import "./App.css";
 import Derekspart from "./components/Dereks-part";
 import Masonspart from "./components/Masons-part";
+import Form from "./components/info-form";
 
 function Launderer() {
    const [basket, setBasket] = useState([]);
-   const [sort, setSort] = useState();
+   const [sort, setSort] = useState("");
+   const [name, setName] = useState("");
+   const [color, setColor] = useState("");
+   const [size, setSize] = useState("");
+   const [type, setType] = useState("");
 
    const addLaundry = (item) => {
-     let newBasket = basket.push(item);
-     console.log(newBasket);
-        setBasket(newBasket);
+        setBasket(basket.concat(item));
+        setName("");
+        setSize("");
+        setColor("");
+        setType("");
+   };
+   
+   const addFromForm = (size, name, color, type) => {
+      let item = {
+         size: size,
+         name: name,
+         color: color,
+         type: type,
+         key: basket.length + 1
+      };
+      addLaundry(item);
    };
 
    const changeSort = option => {
@@ -25,11 +43,11 @@ function Launderer() {
             return setSort("new");
       }
    };
-// Your part will do a sort upon clicking a button. Otherwise there is no point in a basket. Baskets commonly have unfolded laundry.
-   //Then when it's folded, the basket is emptied.
+
 return (
       <div className="App">
-         <Masonspart addLaundry={addLaundry} basketToDisplay={basket}/>
+         <Form addFromForm={addFromForm} size={size} name={name} color={color} type={type} setSize={setSize} setName={setName} setColor={setColor} setType={setType}/>
+         <Masonspart addLaundry={addLaundry} basket={basket}/>
          <Derekspart basket={basket} sort={sort} setSort={changeSort}/>
       </div>
    );
