@@ -3,10 +3,13 @@ import React, {useState, useEffect} from "react";
 
 const Derekspart = ({ basket, drawer, sortIntoDrawer, sort, setSort }) => {
 
-   useEffect(() => {
-      sortIntoDrawer(sort, basket);
+   // useEffect(() => {
+   //    basket.length = 0;
+   //  }, [drawer]);
+   
+   function emptyBasket(basket){
       basket.length = 0;
-    }, [basket, sort]);
+   }
 
     let sortedDrawer = drawer.map((item) =>
       <li key={item.key} className="clothing-item" data-name={item.name} data-color={item.color} data-size={item.size} data-type={item.type}>
@@ -19,7 +22,7 @@ const Derekspart = ({ basket, drawer, sortIntoDrawer, sort, setSort }) => {
    // TODO drawer only displays after user clicks button, and updates each time after
    return (
       <section>   
-         {/* <button onClick={sortIntoDrawer(sort, basket)}>Click to sort items into drawers</button> */}
+         <button onClick={() => {sortIntoDrawer(sort, basket); emptyBasket(basket);}}>Click to sort items into drawers</button>
          <div className="sort-container">
             <h3 className="sort-title">Position By:</h3>
             <ul className="sort-option-list">
