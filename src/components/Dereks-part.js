@@ -5,6 +5,7 @@ const Derekspart = ({ basket, drawer, sortIntoDrawer, sort, setSort }) => {
 
    useEffect(() => {
       sortIntoDrawer(sort, basket);
+      basket.length = 0;
     }, [basket, sort]);
 
     let sortedDrawer = drawer.map((item) =>
