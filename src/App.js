@@ -5,19 +5,45 @@ import Masonspart from "./components/Masons-part";
 import Form from "./components/info-form";
 
 function Launderer() {
-   const [basket, setBasket] = useState([]);
    const [sort, setSort] = useState("");
+   const [drawer, setDrawer] = useState([]);
+   const [basket, setBasket] = useState([]);
    const [name, setName] = useState("");
    const [color, setColor] = useState("");
    const [size, setSize] = useState("");
    const [type, setType] = useState("");
 
+   const changeSort = option => {
+      switch (option) {
+         case "a":
+            return setSort("name");
+         case "b":
+            return setSort("color");
+         case "c":
+            return setSort("type");
+         default:
+            return setSort("name");
+      }
+   };
+
+   function isEmpty(obj) {
+      for(var key in obj) {
+          if(obj.hasOwnProperty(key))
+              return false;
+      }
+      return true;
+  }
+
    const addLaundry = (item) => {
-        setBasket(basket.concat(item));
-        setName("");
-        setSize("");
-        setColor("");
-        setType("");
+      if(isEmpty(item)) {
+         setBasket(basket.concat(item));
+         setName("");
+         setSize("");
+         setColor("");
+         setType("");
+     } else {
+         console.log('Object is empty')
+     }
    };
    
    const addFromForm = (size, name, color, type) => {
@@ -28,20 +54,8 @@ function Launderer() {
          type: type,
          key: basket.length + 1
       };
+      console.log(item)
       addLaundry(item);
-   };
-
-   const changeSort = option => {
-      switch (option) {
-         case "a":
-            return setSort("new");
-         case "b":
-            return setSort("color");
-         case "c":
-            return setSort("type");
-         default:
-            return setSort("new");
-      }
    };
 
 return (
