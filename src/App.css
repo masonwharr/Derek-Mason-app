@@ -37,6 +37,17 @@
   width: 100%;
   Margin-bottom: 5px;
 }
+.sort-option-list{
+  list-style:none;
+  padding: 0;
+}
+.sort-option-list li{
+  display: inline;
+}
+
+.selected {
+  border: 2px solid rgb(0, 0, 255);
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

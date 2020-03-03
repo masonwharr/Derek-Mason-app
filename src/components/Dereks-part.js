@@ -1,8 +1,13 @@
 import React, {useState, useEffect} from "react";
 
-
 const Derekspart = ({ basket, drawer, sortIntoDrawer, sort, setSort }) => {
 
+   const [selectedSort, setSelected] = useState("");
+
+   const sortSelected = option => {
+      setSelected(option)
+   }
+   
    // useEffect(() => {
    //    basket.length = 0;
    //  }, [drawer]);
@@ -26,11 +31,12 @@ const Derekspart = ({ basket, drawer, sortIntoDrawer, sort, setSort }) => {
          <div className="sort-container">
             <h3 className="sort-title">Position By:</h3>
             <ul className="sort-option-list">
-               <li><button className="sort-option button" onClick={() => {setSort('a'); sortIntoDrawer(sort, drawer);}}>Name</button></li>
-               <li><button className="sort-option button" onClick={() => {setSort('b'); sortIntoDrawer(sort, drawer);}}>Type</button></li>
-               <li><button className="sort-option button" onClick={() => {setSort('c'); sortIntoDrawer(sort, drawer);}}>Size</button></li>
-               <li><button className="sort-option button" onClick={() => {setSort('d'); sortIntoDrawer(sort, drawer);}}>Color</button></li>
-            </ul></div>
+               <li><button className={selectedSort === 'a' ? 'selected sort-option button' : 'sort-option button'} onClick={() => {setSort('a'); sortIntoDrawer(sort, drawer); sortSelected('a')}}>Name</button></li>
+               <li><button className={selectedSort === 'b' ? 'selected sort-option button' : 'sort-option button'} onClick={() => {setSort('b'); sortIntoDrawer(sort, drawer); sortSelected('b')}}>Type</button></li>
+               <li><button className={selectedSort === 'c' ? 'selected sort-option button' : 'sort-option button'} onClick={() => {setSort('c'); sortIntoDrawer(sort, drawer); sortSelected('c')}}>Size</button></li>
+               <li><button className={selectedSort === 'd' ? 'selected sort-option button' : 'sort-option button'} onClick={() => {setSort('d'); sortIntoDrawer(sort, drawer); sortSelected('d')}}>Color</button></li>
+            </ul>
+         </div>
          <div className="drawer-container">
             <ul className="drawer-list">
                {sortedDrawer}
