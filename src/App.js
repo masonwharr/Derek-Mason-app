@@ -31,15 +31,15 @@ function Launderer() {
    const sortIntoDrawer = (sort, basket) =>{
       switch (sort) {
          case 'name':
-            return setDrawer([...basket].sort((a, b) => (a.name > b.name) ? 1 : -1));
+            return setDrawer(drawer.concat([...basket].sort((a, b) => (a.name > b.name) ? 1 : -1)));
          case 'type':
-            return setDrawer([...basket].sort((a, b) => (a.type > b.type) ? 1 : -1));
+            return setDrawer(drawer.concat([...basket].sort((a, b) => (a.type > b.type) ? 1 : -1)));
          case 'size':
-            return setDrawer([...basket].sort((a, b) => (a.size > b.size) ? 1 : -1));
+            return setDrawer(drawer.concat([...basket].sort((a, b) => (a.size > b.size) ? 1 : -1)));
          case 'color':
-            return setDrawer([...basket].sort((a, b) => (a.color > b.color) ? 1 : -1));
+            return setDrawer(drawer.concat([...basket].sort((a, b) => (a.color > b.color) ? 1 : -1)));
          default:
-            return setDrawer([...basket].sort((a, b) => (a.name < b.name) ? 1 : -1));
+            return setDrawer(drawer.concat([...basket].sort((a, b) => (a.name < b.name) ? 1 : -1)));
       }
    }
 
@@ -68,9 +68,8 @@ function Launderer() {
          name: name,
          color: color,
          type: type,
-         key: basket.length + 1
+         key: drawer.length + 1
       };
-      console.log(item)
       addLaundry(item);
    };
 
