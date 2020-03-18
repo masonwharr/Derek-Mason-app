@@ -5,7 +5,7 @@ import Masonspart from "./components/Masons-part";
 import Form from "./components/info-form";
 
 function Launderer() {
-   const [sort, setSort] = useState("");
+   const [sort, setSort] = useState('name');
    const [drawer, setDrawer] = useState([]);
    const [basket, setBasket] = useState([]);
    const [name, setName] = useState("");
@@ -31,27 +31,27 @@ function Launderer() {
    const sortIntoDrawer = (sort, basket) =>{
       switch (sort) {
          case 'name':
-            return setDrawer(drawer.concat([...basket].sort((a, b) => (a.name > b.name) ? 1 : -1)));
+            return setDrawer(drawer.concat([...basket]).sort((a, b) => (a.name > b.name) ? 1 : -1));
          case 'type':
-            return setDrawer(drawer.concat([...basket].sort((a, b) => (a.type > b.type) ? 1 : -1)));
+            return setDrawer(drawer.concat([...basket]).sort((a, b) => (a.type > b.type) ? 1 : -1));
          case 'size':
-            return setDrawer(drawer.concat([...basket].sort((a, b) => (a.size > b.size) ? 1 : -1)));
+            return setDrawer(drawer.concat([...basket]).sort((a, b) => (a.size > b.size) ? 1 : -1));
          case 'color':
-            return setDrawer(drawer.concat([...basket].sort((a, b) => (a.color > b.color) ? 1 : -1)));
+            return setDrawer(drawer.concat([...basket]).sort((a, b) => (a.color > b.color) ? 1 : -1));
          default:
-            return setDrawer(drawer.concat([...basket].sort((a, b) => (a.name < b.name) ? 1 : -1)));
+            return setDrawer(drawer.concat([...basket]).sort((a, b) => (a.name > b.name) ? 1 : -1));
       }
    }
 
    function isEmpty(obj) {
       if(obj.size === "" || obj.name === "" || obj.color === "" || obj.type === ""){
-         return false
+         return true
       }
-      return true
+      return false
   }
 
    const addLaundry = (item) => {
-      if(isEmpty(item)) {
+      if(!isEmpty(item)) {
          setBasket(basket.concat(item));
          setName("");
          setSize("");
